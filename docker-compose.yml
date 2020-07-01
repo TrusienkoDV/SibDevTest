@@ -25,7 +25,7 @@ services:
       dockerfile: docker/python/Dockerfile
     expose:
       - 8000
-    command: bash -c "./wait-for-postgres.sh && python manage.py makemigrations && python manage.py migrate && uwsgi --ini uwsgi.ini"
+    command: bash -c "./wait-for-postgres.sh && python manage.py makemigrations && python manage.py makemigrations deals && python manage.py migrate && uwsgi --ini uwsgi.ini"
     depends_on:
       - db
   db:
